@@ -1,0 +1,6 @@
+server:
+  port: 8088
+  servlet:
+    context-path: /lock
+    tomcat:
+      uri-encoding: utf-8
