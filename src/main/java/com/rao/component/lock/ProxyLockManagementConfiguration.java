@@ -19,6 +19,10 @@ public class ProxyLockManagementConfiguration extends AbstractLockManagementConf
     @Role(2)
     public BeanFactoryLockAttributeSourceAdvisor lockAdvisor() {
         BeanFactoryLockAttributeSourceAdvisor advisor = new BeanFactoryLockAttributeSourceAdvisor();
+        advisor.setAdvice(lockInterceptor());
+        if (this.enableLock != null) {
+            advisor.setOrder(this.enableLock.<Integer>getNumber("order"));
+        }
         // todo 找到对应的注解切面，生成代理对象
         return advisor;
     }

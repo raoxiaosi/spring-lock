@@ -12,8 +12,19 @@ import java.io.Serializable;
 public class LockInterceptor extends LockAspectSupport implements MethodInterceptor, Serializable {
 
     @Override
-    public Object invoke(MethodInvocation methodInvocation) throws Throwable {
+    public Object invoke(MethodInvocation invocation) throws Throwable {
         // todo 执行加锁和释放锁的操作
-        return null;
+        Object obj = null;
+        try {
+            System.out.println("获取本地锁");
+            System.out.println("获取分布式锁");
+            obj = invocation.proceed();
+        } catch (Exception e) {
+            System.out.println("出错了。。。");
+        } finally {
+            System.out.println("释放分布式锁");
+            System.out.println("释放本地锁");
+        }
+        return obj;
     }
 }
