@@ -11,7 +11,7 @@ public class BeanFactoryLockAttributeSourceAdvisor extends AbstractBeanFactoryPo
 
     @Override
     public Pointcut getPointcut() {
-        // 获取到对应的切面（根据注解） todo
+        // 获取到对应的切点（根据注解） todo
         return new LockAttributeSourcePointcut();
     }
 }
