@@ -13,10 +13,11 @@ import java.lang.reflect.Method;
 public class LockAttributeSourcePointcut extends StaticMethodMatcherPointcut implements Serializable {
 
     @Override
-    public boolean matches(Method method, Class<?> aClass) {
-        if (method.isAnnotationPresent(MyLock.class)) {
-            return true;
+    public boolean matches(Method method, Class<?> targetClass) {
+        if (targetClass != null) {
+            return false;
         }
-        return false;
+        // todo
+        return method.isAnnotationPresent(MyLock.class);
     }
 }
