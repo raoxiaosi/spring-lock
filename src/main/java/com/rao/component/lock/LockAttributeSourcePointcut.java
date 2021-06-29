@@ -14,9 +14,9 @@ public class LockAttributeSourcePointcut extends StaticMethodMatcherPointcut imp
 
     @Override
     public boolean matches(Method method, Class<?> targetClass) {
-        if (targetClass != null) {
-            return false;
-        }
+//        if (targetClass != null) {
+//            return false;
+//        }
         // todo
         return method.isAnnotationPresent(MyLock.class);
     }
