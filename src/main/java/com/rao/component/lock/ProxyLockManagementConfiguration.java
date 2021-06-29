@@ -4,7 +4,6 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Role;
-import org.springframework.core.annotation.Order;
 
 /**
  * @author raojing
@@ -28,7 +27,7 @@ public class ProxyLockManagementConfiguration extends AbstractLockManagementConf
     }
 
     @Bean
-    @Order(2)
+    @Role(2)
     public LockInterceptor lockInterceptor() {
         LockInterceptor interceptor = new LockInterceptor();
         // todo 执行增强逻辑-加锁 释放锁
